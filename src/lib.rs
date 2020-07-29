@@ -8,7 +8,7 @@ use wasm_bindgen::prelude::*;
 //}
 
 
-fn say(a: i32, i: i32, p: i32) -> String {
+pub fn say(a: i32, i: i32, p: i32) -> String {
   let r = String::from("Interest calculation is : ");
   let mut calc = 0;
   let mut aa = a;
