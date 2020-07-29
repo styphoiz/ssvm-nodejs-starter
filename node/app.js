@@ -7,10 +7,18 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
   const queryObject = url.parse(req.url,true).query;
-  if (!queryObject['name']) {
-    res.end(`Please use command curl http://${hostname}:${port}/?name=MyName \n`);
-  } else {
-    res.end(say(queryObject['name']) + '\n');
+  //if (!queryObject['name']) {
+  //  res.end(`Please use command curl http://${hostname}:${port}/?name=MyName \n`);
+  //} else {
+  //  res.end(say(queryObject['name']) + '\n');
+  //}
+  if(!queryObject['amount']||!queryObject['interest']||!queryObject['period'])
+  {
+    res.end(`Please use command curl http://${hostname}:${port}/?amount=Amount&interest=Interest&period=Period \n`);
+  }
+  else
+  {
+    res.end(say(queryObject['amount'],queryObject['interest'],queryObject['period']) + '\n');
   }
 });
 
